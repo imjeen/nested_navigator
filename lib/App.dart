@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import './constants.dart';
 
 class App extends StatefulWidget {
+  static const String routeName = '/';
   const App({Key? key}) : super(key: key);
 
   @override
