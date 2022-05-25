@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
   static const String routeName = "/splash";
-  
+
   final String redirectRouteName;
 
   const SplashScreen({
@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     // 延迟 5s
-    Timer(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 5), () {
       Navigator.of(context).pushReplacementNamed(widget.redirectRouteName);
     });
   }

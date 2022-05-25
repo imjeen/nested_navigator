@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:nested_navigator/screens/create_post/create_post_screen.dart';
+import 'package:nested_navigator/screens/explore/explore_screen.dart';
+import 'package:nested_navigator/screens/favorite/favorite_screen.dart';
+import 'package:nested_navigator/screens/feed/feed_screen.dart';
+import 'package:nested_navigator/screens/profile/profile_screen.dart';
 
 import './constants.dart';
 
 class App extends StatefulWidget {
-  static const String routeName = '/';
+  static const String routeName = '/app';
   const App({Key? key}) : super(key: key);
 
   @override
@@ -14,17 +19,17 @@ class _AppState extends State<App> {
   // 图标
   final Map<BottomNavItem, IconData> items = {
     BottomNavItem.feed: Icons.home,
-    BottomNavItem.search: Icons.search,
+    BottomNavItem.explore: Icons.explore,
     BottomNavItem.create: Icons.add,
-    BottomNavItem.notifications: Icons.favorite_border,
+    BottomNavItem.favorite: Icons.favorite_border,
     BottomNavItem.profile: Icons.account_circle
   };
   // Key 值
   final Map<BottomNavItem, GlobalKey<NavigatorState>> navigatorKeys = {
     BottomNavItem.feed: GlobalKey<NavigatorState>(),
-    BottomNavItem.search: GlobalKey<NavigatorState>(),
+    BottomNavItem.explore: GlobalKey<NavigatorState>(),
     BottomNavItem.create: GlobalKey<NavigatorState>(),
-    BottomNavItem.notifications: GlobalKey<NavigatorState>(),
+    BottomNavItem.favorite: GlobalKey<NavigatorState>(),
     BottomNavItem.profile: GlobalKey<NavigatorState>(),
   };
 
@@ -131,32 +136,22 @@ class TabNavigator extends StatelessWidget {
         List<MaterialPageRoute> routes = [];
 
         routes.add(MaterialPageRoute(
-          settings: const RouteSettings(name: '/home'),
+          settings: const RouteSettings(name: '/tab'),
           builder: (context) {
             switch (item) {
               case BottomNavItem.feed:
-                return const Center(
-                  child: Text('#feed'),
-                );
-              case BottomNavItem.search:
-                return const Center(
-                  child: Text('#search'),
-                );
+                return const FeedScreen();
+              case BottomNavItem.explore:
+                return const ExploreScreen();
               case BottomNavItem.create:
-                return const Center(
-                  child: Text('#create'),
-                );
-              case BottomNavItem.notifications:
-                return const Center(
-                  child: Text('#notifications'),
-                );
+                return const CreatePostScreen();
+              case BottomNavItem.favorite:
+                return const FavoriteScreen();
               case BottomNavItem.profile:
-                return const Center(
-                  child: Text('#profile'),
-                );
+                return const ProfileScreen();
               default:
                 return const Center(
-                  child: Text('#error'),
+                  child: Text('error'),
                 );
             }
           },

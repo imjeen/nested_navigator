@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nested_navigator/App.dart';
 import 'package:nested_navigator/custom_router.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/',
+      initialRoute: App.routeName,
       onGenerateRoute: CustomRouter.onGenerateRoute,
     );
   }
