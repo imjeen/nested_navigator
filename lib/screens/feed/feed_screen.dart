@@ -5,8 +5,8 @@ class FeedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('#feed screen'),
+    return const Center(
+      child: Text('feed screen'),
     );
   }
 }
