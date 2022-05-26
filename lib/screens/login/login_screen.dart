@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nested_navigator/screens/app_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   static const String routeName = '/login';
@@ -7,8 +8,21 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('login screen'),
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('login screen'),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushReplacementNamed(AppScreen.routeName);
+              },
+              child: const Text('go to Feed page'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:nested_navigator/bottom_nav.dart';
+import 'package:nested_navigator/screens/bottom_nav.dart';
 
-import './constants.dart';
+import '../constants.dart';
 
-class App extends StatefulWidget {
-  static const String routeName = '/app';
-  const App({Key? key}) : super(key: key);
+class AppScreen extends StatefulWidget {
+  static const String routeName = '/';
+  const AppScreen({Key? key}) : super(key: key);
 
   @override
-  State<App> createState() => _AppState();
+  State<AppScreen> createState() => _AppScreenState();
 }
 
-class _AppState extends State<App> {
+class _AppScreenState extends State<AppScreen> {
   // 图标
   final Map<BottomNavItem, IconData> items = {
     BottomNavItem.feed: Icons.home,

@@ -3,6 +3,7 @@ import 'package:nested_navigator/widgets/color_detail.dart';
 import 'package:nested_navigator/widgets/color_list.dart';
 
 class CreatePostScreen extends StatelessWidget {
+  static const String routeName = "/createPost";
   const CreatePostScreen({Key? key}) : super(key: key);
 
   final MaterialColor color = Colors.blue;

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nested_navigator/App.dart';
+import 'package:nested_navigator/screens/app_screen.dart';
 import 'package:nested_navigator/screens/comments/comments_screen.dart';
+import 'package:nested_navigator/screens/edit_profile/edit_profile_screen.dart';
 import 'package:nested_navigator/screens/login/login_screen.dart';
 import 'package:nested_navigator/screens/splash_screen.dart';
 
@@ -13,10 +14,10 @@ class CustomRouter {
           settings: const RouteSettings(name: SplashScreen.routeName),
           builder: (_) => const SplashScreen(),
         );
-      case App.routeName:
+      case AppScreen.routeName:
         return MaterialPageRoute(
-          settings: const RouteSettings(name: App.routeName),
-          builder: (_) => const App(),
+          settings: const RouteSettings(name: AppScreen.routeName),
+          builder: (_) => const AppScreen(),
         );
       case CommentsScreen.routeName:
         return MaterialPageRoute(
@@ -37,17 +38,10 @@ class CustomRouter {
   // Tab Navigator 的嵌套路由
   static Route generateTabNestedRoute(RouteSettings settings) {
     switch (settings.name) {
-      case '/nested':
+      case EditProfileScreen.routeName:
         return MaterialPageRoute(
-          settings: const RouteSettings(name: '/nested'),
-          builder: (_) => Scaffold(
-            appBar: AppBar(
-              title: const Text('Nested'),
-            ),
-            body: const Center(
-              child: Text('screen: /nested'),
-            ),
-          ),
+          settings: const RouteSettings(name: EditProfileScreen.routeName),
+          builder: (_) => const EditProfileScreen(),
         );
       default:
         return _errorRoute(text: 'Not found nested route: ${settings.name}');

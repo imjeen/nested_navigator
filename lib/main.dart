@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nested_navigator/App.dart';
 import 'package:nested_navigator/custom_router.dart';
+import 'package:nested_navigator/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: App.routeName,
+      initialRoute: SplashScreen.routeName,
       onGenerateRoute: CustomRouter.generateRoute,
     );
   }
